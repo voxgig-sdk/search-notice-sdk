@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://api.adviceslip.com"
+      }
+      description: "This API allows users to search for specific notice slips within a given database. It provides information regarding the results of search queries, indicating if there are matching slips or not."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.adviceslip.com"
+        }
+      ]
+      title: "Search Notice API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

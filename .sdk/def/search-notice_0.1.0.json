@@ -1,0 +1,199 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Search Notice API",
+    "description": "This API allows users to search for specific notice slips within a given database. It provides information regarding the results of search queries, indicating if there are matching slips or not.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://api.adviceslip.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.adviceslip.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/advice/search/{query}": {
+      "get": {
+        "summary": "Search for advice slips",
+        "description": "Search for specific notice/advice slips within the database using a search term. Returns matching slips or a notice if no results are found.",
+        "operationId": "searchAdviceSlips",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "description": "The search term to query for advice slips",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "try1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response - returns search results or notice",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/NoticeResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SearchResultsResponse"
+                    }
+                  ]
+                },
+                "examples": {
+                  "noResults": {
+                    "summary": "No results found",
+                    "value": {
+                      "message": {
+                        "type": "notice",
+                        "text": "No advice slips found matching that search term."
+                      }
+                    }
+                  },
+                  "withResults": {
+                    "summary": "Results found",
+                    "value": {
+                      "total_results": "2",
+                      "query": "example",
+                      "slips": [
+                        {
+                          "id": 123,
+                          "advice": "Example advice text",
+                          "date": "2024-01-01"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid search query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Search"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "NoticeResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "notice"
+                ],
+                "description": "Type of message"
+              },
+              "text": {
+                "type": "string",
+                "description": "Notice message text"
+              }
+            },
+            "required": [
+              "type",
+              "text"
+            ]
+          }
+        },
+        "required": [
+          "message"
+        ]
+      },
+      "SearchResultsResponse": {
+        "type": "object",
+        "properties": {
+          "total_results": {
+            "type": "string",
+            "description": "Total number of results found"
+          },
+          "query": {
+            "type": "string",
+            "description": "The search query that was executed"
+          },
+          "slips": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AdviceSlip"
+            },
+            "description": "Array of matching advice slips"
+          }
+        },
+        "required": [
+          "total_results",
+          "query",
+          "slips"
+        ]
+      },
+      "AdviceSlip": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the advice slip"
+          },
+          "advice": {
+            "type": "string",
+            "description": "The advice text"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of the advice slip"
+          }
+        },
+        "required": [
+          "id",
+          "advice"
+        ]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Search",
+      "description": "Search operations for advice slips"
+    }
+  ]
+}

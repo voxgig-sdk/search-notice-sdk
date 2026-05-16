@@ -1,0 +1,61 @@
+# Entity: search
+
+main: kit: entity: search: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "message"
+      req: false
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "search"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "try1"
+                kind: "param"
+                name: "id"
+                orig: "query"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/advice/search/{query}"
+          parts: [
+            "advice"
+            "search"
+            "{id}"
+          ]
+          rename: {
+            param: {
+              query: "id"
+            }
+          }
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
