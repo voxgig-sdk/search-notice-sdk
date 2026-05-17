@@ -2,13 +2,16 @@
   "existing": {
     "search": {
       "SEARCH00": {
-        "message": {}
+        "message": {},
+        "id": "SEARCH00"
       },
       "SEARCH01": {
-        "message": {}
+        "message": {},
+        "id": "SEARCH01"
       },
       "SEARCH02": {
-        "message": {}
+        "message": {},
+        "id": "SEARCH02"
       }
     }
   },

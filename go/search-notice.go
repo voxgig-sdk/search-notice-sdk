@@ -1,10 +1,10 @@
 package voxgigsearchnoticesdk
 
 import (
-	"github.com/voxgig-sdk/search-notice-sdk/core"
-	"github.com/voxgig-sdk/search-notice-sdk/entity"
-	"github.com/voxgig-sdk/search-notice-sdk/feature"
-	_ "github.com/voxgig-sdk/search-notice-sdk/utility"
+	"github.com/voxgig-sdk/search-notice-sdk/go/core"
+	"github.com/voxgig-sdk/search-notice-sdk/go/entity"
+	"github.com/voxgig-sdk/search-notice-sdk/go/feature"
+	_ "github.com/voxgig-sdk/search-notice-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
