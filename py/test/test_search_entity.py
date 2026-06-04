@@ -91,7 +91,6 @@ def _search_basic_setup(extra):
         "SEARCHNOTICE_TEST_SEARCH_ENTID": idmap,
         "SEARCHNOTICE_TEST_LIVE": "FALSE",
         "SEARCHNOTICE_TEST_EXPLAIN": "FALSE",
-        "SEARCHNOTICE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +101,6 @@ def _search_basic_setup(extra):
     if env.get("SEARCHNOTICE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("SEARCHNOTICE_APIKEY"),
             },
             extra or {},
         ])
