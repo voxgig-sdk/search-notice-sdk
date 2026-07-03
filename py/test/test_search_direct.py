@@ -66,12 +66,14 @@ def _search_direct_setup(mockres):
     env = runner.env_override({
         "SEARCHNOTICE_TEST_SEARCH_ENTID": {},
         "SEARCHNOTICE_TEST_LIVE": "FALSE",
+        "SEARCHNOTICE_APIKEY": "NONE",
     })
 
     live = env.get("SEARCHNOTICE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("SEARCHNOTICE_APIKEY"),
         }
         client = SearchNoticeSDK(merged_opts)
         return {

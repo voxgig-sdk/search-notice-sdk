@@ -70,12 +70,14 @@ function search_direct_setup(mockres)
   local env = runner.env_override({
     ["SEARCHNOTICE_TEST_SEARCH_ENTID"] = {},
     ["SEARCHNOTICE_TEST_LIVE"] = "FALSE",
+    ["SEARCHNOTICE_APIKEY"] = "NONE",
   })
 
   local live = env["SEARCHNOTICE_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["SEARCHNOTICE_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

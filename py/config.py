@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://api.adviceslip.com",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -26,29 +29,31 @@ def make_config():
       "search": {
         "fields": [
           {
+            "active": True,
             "name": "message",
             "req": False,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 0,
           },
         ],
         "name": "search",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
                 "args": {
                   "params": [
                     {
+                      "active": True,
                       "example": "try1",
                       "kind": "param",
                       "name": "id",
                       "orig": "query",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -73,11 +78,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },

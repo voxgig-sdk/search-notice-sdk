@@ -1,21 +1,8 @@
 # SearchNotice SDK
 
-Search the Advice Slip catalogue for slips containing a given term
+Search Notice API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Search Notice API
-
-This SDK is a focused subset of the [Advice Slip JSON API](https://api.adviceslip.com) run by Tom Kiss, exposing just the search endpoint. The wider API serves short pieces of advice ("slips") and hands out over 10 million of them each year.
-
-What you get from this SDK:
-
-- Full-text search via `GET /advice/search/{query}`, which returns a search object containing `total_results`, the original `query`, and an array of matching slip objects (each with `slip_id` and `advice`).
-- If no slips match the query, the API responds with a `message` object describing the notice instead of slips.
-
-Operational notes: there is no authentication, CORS is enabled, and responses are cached for 2 seconds (a repeat call inside that window returns the same result). Optional JSONP is supported via a `callback` query parameter.
-
-Note: this slug is a search-only subset of the broader `advice-slip` API and points at the same upstream service.
 
 ## Try it
 
@@ -49,27 +36,31 @@ gem install search-notice-sdk
 luarocks install search-notice-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { SearchNoticeSDK } from 'search-notice'
 
-const client = new SearchNoticeSDK({})
+const client = new SearchNoticeSDK({
+  apikey: process.env.SEARCH-NOTICE_APIKEY,
+})
 
+// Load search data
+const search = await client.Search().load({})
+console.log(search.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -99,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Search** | Full-text search over the Advice Slip catalogue at `GET /advice/search/{query}`, returning `total_results`, the submitted `query`, and an array of matching slip objects; if nothing matches, a `message` object is returned instead. | `/advice/search/{query}` |
+| **Search** |  | `/advice/search/{query}` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -109,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from searchnotice_sdk import SearchNoticeSDK
 
-client = SearchNoticeSDK({})
+client = SearchNoticeSDK({
+    "apikey": os.environ.get("SEARCH-NOTICE_APIKEY"),
+})
 
 
 # Load a specific search
-search, err = client.Search(None).load(
-    {"id": "example_id"}, None
-)
+search, err = client.Search().load({"id": "example_id"})
+print(search)
 ```
 
 ### PHP
@@ -126,13 +119,14 @@ search, err = client.Search(None).load(
 <?php
 require_once 'searchnotice_sdk.php';
 
-$client = new SearchNoticeSDK([]);
+$client = new SearchNoticeSDK([
+    "apikey" => getenv("SEARCH-NOTICE_APIKEY"),
+]);
 
 
 // Load a specific search
-[$search, $err] = $client->Search(null)->load(
-    ["id" => "example_id"], null
-);
+[$search, $err] = $client->Search()->load(["id" => "example_id"]);
+print_r($search);
 ```
 
 ### Golang
@@ -140,8 +134,13 @@ $client = new SearchNoticeSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/search-notice-sdk/go"
 
-client := sdk.NewSearchNoticeSDK(map[string]any{})
+client := sdk.NewSearchNoticeSDK(map[string]any{
+    "apikey": os.Getenv("SEARCH-NOTICE_APIKEY"),
+})
 
+// Load search data
+search, err := client.Search(nil).Load(map[string]any{}, nil)
+fmt.Println(search)
 ```
 
 ### Ruby
@@ -149,13 +148,14 @@ client := sdk.NewSearchNoticeSDK(map[string]any{})
 ```ruby
 require_relative "SearchNotice_sdk"
 
-client = SearchNoticeSDK.new({})
+client = SearchNoticeSDK.new({
+  "apikey" => ENV["SEARCH-NOTICE_APIKEY"],
+})
 
 
 # Load a specific search
-search, err = client.Search(nil).load(
-  { "id" => "example_id" }, nil
-)
+search, err = client.Search().load({ "id" => "example_id" })
+puts search
 ```
 
 ### Lua
@@ -163,13 +163,14 @@ search, err = client.Search(nil).load(
 ```lua
 local sdk = require("search-notice_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("SEARCH-NOTICE_APIKEY"),
+})
 
 
 -- Load a specific search
-local search, err = client:Search(nil):load(
-  { id = "example_id" }, nil
-)
+local search, err = client:Search():load({ id = "example_id" })
+print(search)
 ```
 
 ## Unit testing in offline mode
@@ -188,25 +189,21 @@ const result = await client.Search().load({ id: 'test01' })
 ### Python
 
 ```python
-client = SearchNoticeSDK.test(None, None)
-result, err = client.Search(None).load(
-    {"id": "test01"}, None
-)
+client = SearchNoticeSDK.test()
+result, err = client.Search().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = SearchNoticeSDK::test(null, null);
-[$result, $err] = $client->Search(null)->load(
-    ["id" => "test01"], null
-);
+$client = SearchNoticeSDK::test();
+[$result, $err] = $client->Search()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Search(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -215,19 +212,15 @@ result, err := client.Search(nil).Load(
 ### Ruby
 
 ```ruby
-client = SearchNoticeSDK.test(nil, nil)
-result, err = client.Search(nil).load(
-  { "id" => "test01" }, nil
-)
+client = SearchNoticeSDK.test
+result, err = client.Search().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Search(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Search():load({ id = "test01" })
 ```
 
 ## How it works
@@ -331,15 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Search Notice API
-
-- Upstream: [https://api.adviceslip.com](https://api.adviceslip.com)
-
-- The Advice Slip JSON API is provided free of charge by Tom Kiss (© 2013–2026).
-- No API key or authentication is required.
-- Responses are cached for 2 seconds, so repeat requests within that window return the same result.
-- The creator suggests supporting the service via Ko-fi ("buy them a coffee or beer") if you find it useful.
 
 ---
 

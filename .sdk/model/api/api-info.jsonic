@@ -16,28 +16,7 @@ main: {
       ]
       title: "Search Notice API"
       version: "1.0.0"
-      tagline: "Search the Advice Slip catalogue for slips containing a given term"
-      homepage: "https://api.adviceslip.com"
-      docs_url: "https://api.adviceslip.com"
-      license_short: "Free to use; no authentication required. Operated by Tom Kiss."
-      license_md: `- The Advice Slip JSON API is provided free of charge by Tom Kiss (© 2013–2026).
-- No API key or authentication is required.
-- Responses are cached for 2 seconds, so repeat requests within that window return the same result.
-- The creator suggests supporting the service via Ko-fi ("buy them a coffee or beer") if you find it useful.`
-      about_md: `This SDK is a focused subset of the [Advice Slip JSON API](https://api.adviceslip.com) run by Tom Kiss, exposing just the search endpoint. The wider API serves short pieces of advice ("slips") and hands out over 10 million of them each year.
-
-What you get from this SDK:
-
-- Full-text search via \`GET /advice/search/{query}\`, which returns a search object containing \`total_results\`, the original \`query\`, and an array of matching slip objects (each with \`slip_id\` and \`advice\`).
-- If no slips match the query, the API responds with a \`message\` object describing the notice instead of slips.
-
-Operational notes: there is no authentication, CORS is enabled, and responses are cached for 2 seconds (a repeat call inside that window returns the same result). Optional JSONP is supported via a \`callback\` query parameter.
-
-Note: this slug is a search-only subset of the broader \`advice-slip\` API and points at the same upstream service.`
-      entity_desc: {
-        search: "Full-text search over the Advice Slip catalogue at `GET /advice/search/{query}`, returning `total_results`, the submitted `query`, and an array of matching slip objects; if nothing matches, a `message` object is returned instead."
-      }
-      auth: false
     }
   }
 }
+

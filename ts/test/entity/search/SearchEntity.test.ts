@@ -111,6 +111,7 @@ function basicSetup(extra?: any) {
     'SEARCH_NOTICE_TEST_SEARCH_ENTID': idmap,
     'SEARCH_NOTICE_TEST_LIVE': 'FALSE',
     'SEARCH_NOTICE_TEST_EXPLAIN': 'FALSE',
+    'SEARCH_NOTICE_APIKEY': 'NONE',
   })
 
   idmap = env['SEARCH_NOTICE_TEST_SEARCH_ENTID']
@@ -120,6 +121,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new SearchNoticeSDK(merge([
       {
+        apikey: env.SEARCH_NOTICE_APIKEY,
       },
       extra
     ]))

@@ -75,12 +75,14 @@ function search_direct_setup($mockres)
     $env = Runner::env_override([
         "SEARCHNOTICE_TEST_SEARCH_ENTID" => [],
         "SEARCHNOTICE_TEST_LIVE" => "FALSE",
+        "SEARCHNOTICE_APIKEY" => "NONE",
     ]);
 
     $live = $env["SEARCHNOTICE_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["SEARCHNOTICE_APIKEY"],
         ];
         $client = new SearchNoticeSDK($merged_opts);
         return [

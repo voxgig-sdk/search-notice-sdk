@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://api.adviceslip.com',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -55,29 +59,31 @@ class Config {
     "search": {
       "fields": [
         {
+          "active": true,
           "name": "message",
           "req": false,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 0
         }
       ],
       "name": "search",
       "op": {
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "params": [
                   {
+                    "active": true,
                     "example": "try1",
                     "kind": "param",
                     "name": "id",
                     "orig": "query",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -102,11 +108,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },
