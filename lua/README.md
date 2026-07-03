@@ -10,7 +10,7 @@ The Lua SDK for the SearchNotice API — an entity-oriented client using Lua con
 
 ## Install
 ```bash
-luarocks install search-notice-sdk
+luarocks install voxgig-sdk-search-notice
 ```
 
 If the module is not yet published, add the source directory to

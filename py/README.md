@@ -10,7 +10,7 @@ The Python SDK for the SearchNotice API — an entity-oriented client following 
 
 ## Install
 ```bash
-pip install search-notice-sdk
+pip install voxgig-sdk-search-notice
 ```
 
 Or install from source:

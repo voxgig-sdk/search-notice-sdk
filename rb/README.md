@@ -10,13 +10,13 @@ The Ruby SDK for the SearchNotice API — an entity-oriented client using idioma
 
 ## Install
 ```bash
-gem install search-notice-sdk
+gem install voxgig-sdk-search-notice
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "search-notice-sdk"
+gem "voxgig-sdk-search-notice"
 ```
 
 Then run:

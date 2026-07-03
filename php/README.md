@@ -10,7 +10,7 @@ The PHP SDK for the SearchNotice API — an entity-oriented client using PHP con
 
 ## Install
 ```bash
-composer require voxgig/search-notice-sdk
+composer require voxgig-sdk/search-notice
 ```
 
 

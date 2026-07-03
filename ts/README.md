@@ -10,7 +10,7 @@ The TypeScript SDK for the SearchNotice API — a type-safe, entity-oriented cli
 
 ## Install
 ```bash
-npm install search-notice
+npm install @voxgig-sdk/search-notice
 ```
 ## Tutorial: your first API call
 
