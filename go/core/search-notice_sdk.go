@@ -245,6 +245,9 @@ func (sdk *SearchNoticeSDK) Direct(fetchargs map[string]any) (map[string]any, er
 }
 
 
+// Search returns a Search entity bound to this client.
+// Idiomatic usage: client.Search(nil).List(nil, nil) or
+// client.Search(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *SearchNoticeSDK) Search(data map[string]any) SearchNoticeEntity {
 	return NewSearchEntityFunc(sdk, data)
 }

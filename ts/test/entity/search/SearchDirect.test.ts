@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'SEARCHNOTICE_TEST_SEARCH_ENTID': {},
     'SEARCHNOTICE_TEST_LIVE': 'FALSE',
-    'SEARCHNOTICE_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.SEARCHNOTICE_TEST_LIVE
 
   if (live) {
     const client = new SearchNoticeSDK({
-      apikey: env.SEARCHNOTICE_APIKEY,
     })
 
     let idmap: any = env['SEARCHNOTICE_TEST_SEARCH_ENTID']

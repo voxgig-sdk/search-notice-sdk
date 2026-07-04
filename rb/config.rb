@@ -15,9 +15,6 @@ module SearchNoticeConfig
       },
       "options" => {
         "base" => "https://api.adviceslip.com",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -54,6 +51,7 @@ module SearchNoticeConfig
                         "orig" => "query",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },
