@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## SearchEntity
 
 ```lua
-local search = client:search(nil)
+local search = client:Search(nil)
 ```
 
 ### Fields
@@ -99,7 +99,7 @@ local search = client:search(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:search():load({ id = "search_id" })
+local result, err = client:Search():load({ id = "search_id" })
 ```
 
 ### Common Methods

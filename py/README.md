@@ -33,10 +33,12 @@ client = SearchNoticeSDK()
 
 ### 3. Load a search
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.search.load({"id": "example_id"})
-    print(result)
+    search = client.Search().load({"id": "example_id"})
+    print(search)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = SearchNoticeSDK.test()
 
-result = client.search.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+search = client.Search().load({"id": "test01"})
+# search contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -218,7 +221,7 @@ API path: `/advice/search/{query}`
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `search = client.Search()`
 
 #### Operations
 
@@ -234,8 +237,8 @@ Create an instance: `const search = client.search`
 
 #### Example: Load
 
-```ts
-const search = await client.search.load({ id: 'search_id' })
+```python
+search = client.Search().load({"id": "search_id"})
 ```
 
 
@@ -309,7 +312,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-search = client.search
+search = client.Search()
 search.load({"id": "example_id"})
 
 # search.data_get() now returns the loaded search data

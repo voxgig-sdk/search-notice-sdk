@@ -32,8 +32,9 @@ client = SearchNoticeSDK.new
 
 ```ruby
 begin
-  result = client.search.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Search record (raises on error).
+  search = client.Search.load({ "id" => "example_id" })
+  puts search
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = SearchNoticeSDK.test
+client = SearchNoticeSDK.test({
+  "entity" => { "search" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.search.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+search = client.Search.load({ "id" => "test01" })
+puts search
 ```
 
 ### Use a custom fetch function
@@ -218,7 +223,7 @@ API path: `/advice/search/{query}`
 
 ### Search
 
-Create an instance: `const search = client.search`
+Create an instance: `search = client.Search`
 
 #### Operations
 
@@ -234,8 +239,9 @@ Create an instance: `const search = client.search`
 
 #### Example: Load
 
-```ts
-const search = await client.search.load({ id: 'search_id' })
+```ruby
+# load returns the bare Search record (raises on error).
+search = client.Search.load({ "id" => "search_id" })
 ```
 
 
@@ -310,7 +316,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-search = client.search
+search = client.Search
 search.load({ "id" => "example_id" })
 
 # search.data_get now returns the loaded search data
