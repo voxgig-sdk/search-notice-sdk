@@ -8,7 +8,7 @@ Complete API reference for the SearchNotice Python SDK.
 ### Constructor
 
 ```python
-from search-notice_sdk import SearchNoticeSDK
+from searchnotice_sdk import SearchNoticeSDK
 
 client = SearchNoticeSDK(options)
 ```
@@ -87,7 +87,7 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
+| `message` | `dict` | No |  |
 
 ### Operations
 

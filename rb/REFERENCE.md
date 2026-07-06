@@ -8,7 +8,7 @@ Complete API reference for the SearchNotice Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'search-notice_sdk'
+require_relative 'SearchNotice_sdk'
 
 client = SearchNoticeSDK.new(options)
 ```
@@ -93,7 +93,7 @@ search = client.Search
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
+| `message` | `Hash` | No |  |
 
 ### Operations
 

@@ -90,7 +90,7 @@ local search = client:Search(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
+| `message` | `table` | No |  |
 
 ### Operations
 

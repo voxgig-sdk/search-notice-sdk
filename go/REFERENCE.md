@@ -97,7 +97,7 @@ search := client.Search(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `message` | ``$OBJECT`` | No |  |
+| `message` | `map[string]any` | No |  |
 
 ### Operations
 
