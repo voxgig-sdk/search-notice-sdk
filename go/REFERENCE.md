@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 search := client.Search(nil)
+fmt.Println(search.GetName()) // "search"
 ```
 
 ### Fields
@@ -107,6 +108,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Search(nil).Load(map[string]any{"id": "search_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

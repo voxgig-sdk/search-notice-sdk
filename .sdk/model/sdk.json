@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -219,14 +216,17 @@
           "url": "https://api.adviceslip.com"
         },
         "description": "This API allows users to search for specific notice slips within a given database. It provides information regarding the results of search queries, indicating if there are matching slips or not.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://api.adviceslip.com"
           }
         ],
+        "summary": "This API allows users to search for specific notice slips within a given database.",
         "title": "Search Notice API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://adviceslip.com"
       },
       "option": {},
       "target": {
@@ -279,6 +279,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -329,6 +332,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

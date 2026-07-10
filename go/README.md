@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single search — the value is the loaded record.
-    search, err := client.Search(nil).Load(map[string]any{"id": "example"}, nil)
+    search, err := client.Search(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }

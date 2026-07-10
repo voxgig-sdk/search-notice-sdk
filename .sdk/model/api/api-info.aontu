@@ -15,9 +15,9 @@ main: {
           url: "https://api.adviceslip.com"
         }
       ]
+      summary: "This API allows users to search for specific notice slips within a given database."
       title: "Search Notice API"
       version: "1.0.0"
+      website: "https://adviceslip.com"
     }
   }
-}
-
