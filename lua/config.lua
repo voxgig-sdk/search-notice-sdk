@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- SearchNotice SDK configuration
 
 local function make_config()
   return {

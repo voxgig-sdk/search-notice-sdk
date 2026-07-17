@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- SearchNotice SDK exists test
 
 local sdk = require("search-notice_sdk")
 
