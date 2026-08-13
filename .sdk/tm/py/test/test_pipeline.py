@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import SearchNoticeSDK
-from core.error import SearchNoticeError
-from core.result import SearchNoticeResult
-from core.response import SearchNoticeResponse
-from core.spec import SearchNoticeSpec
-from feature.base_feature import SearchNoticeBaseFeature
+from projectname_sdk.core.error import SearchNoticeError
+from projectname_sdk.core.result import SearchNoticeResult
+from projectname_sdk.core.response import SearchNoticeResponse
+from projectname_sdk.core.spec import SearchNoticeSpec
+from projectname_sdk.feature.base_feature import SearchNoticeBaseFeature
 
 
 def _client():

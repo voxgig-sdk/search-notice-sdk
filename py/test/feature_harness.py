@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import SearchNoticeControl
-from core.error import SearchNoticeError
-from core.result import SearchNoticeResult
-from core.spec import SearchNoticeSpec
+from searchnotice_sdk.config import make_config
+from searchnotice_sdk.features import _make_feature
+from searchnotice_sdk.core.control import SearchNoticeControl
+from searchnotice_sdk.core.error import SearchNoticeError
+from searchnotice_sdk.core.result import SearchNoticeResult
+from searchnotice_sdk.core.spec import SearchNoticeSpec
 
 
 # True when this SDK was generated with the named feature.

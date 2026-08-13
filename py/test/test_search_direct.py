@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from searchnotice_sdk.utility.voxgig_struct import voxgig_struct as vs
 from searchnotice_sdk import SearchNoticeSDK
-from core import helpers
+from searchnotice_sdk.core import helpers
 from test import runner
 
 
@@ -63,11 +63,11 @@ def _search_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "SEARCHNOTICE_TEST_SEARCH_ENTID": {},
-        "SEARCHNOTICE_TEST_LIVE": "FALSE",
+        "SEARCH_NOTICE_TEST_SEARCH_ENTID": {},
+        "SEARCH_NOTICE_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("SEARCHNOTICE_TEST_LIVE") == "TRUE"
+    live = env.get("SEARCH_NOTICE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

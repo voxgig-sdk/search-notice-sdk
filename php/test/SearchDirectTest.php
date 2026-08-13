@@ -73,11 +73,11 @@ function search_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "SEARCHNOTICE_TEST_SEARCH_ENTID" => [],
-        "SEARCHNOTICE_TEST_LIVE" => "FALSE",
+        "SEARCH_NOTICE_TEST_SEARCH_ENTID" => [],
+        "SEARCH_NOTICE_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["SEARCHNOTICE_TEST_LIVE"] === "TRUE";
+    $live = $env["SEARCH_NOTICE_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

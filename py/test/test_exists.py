@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# SearchNotice SDK exists test
 
 import pytest
 from searchnotice_sdk import SearchNoticeSDK

@@ -26,8 +26,8 @@ import {
 describe('SearchEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when SEARCHNOTICE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('SEARCHNOTICE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when SEARCH_NOTICE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('SEARCH_NOTICE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = SearchNoticeSDK.test()

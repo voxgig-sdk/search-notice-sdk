@@ -43,8 +43,8 @@ class SearchNoticeTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('SEARCHNOTICE_TEST_LIVE');
-        $override = self::getenv('SEARCHNOTICE_TEST_OVERRIDE');
+        $live = self::getenv('SEARCH_NOTICE_TEST_LIVE');
+        $override = self::getenv('SEARCH_NOTICE_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class SearchNoticeTestRunner
             }
         }
 
-        $explain = self::getenv('SEARCHNOTICE_TEST_EXPLAIN');
+        $explain = self::getenv('SEARCH_NOTICE_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['SEARCHNOTICE_TEST_EXPLAIN'] = $explain;
+            $m['SEARCH_NOTICE_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

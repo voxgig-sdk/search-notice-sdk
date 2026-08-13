@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new SearchNoticeSDK()
-const search = await client.Search().load()
+const search = await client.Search().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = SearchNoticeSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = SearchNoticeSDK.test({
+  entity: {
+    search: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const search = await client.Search().load({ id: 'test01' })
-// search is a bare Search populated with mock data
+// search is the Search entity, populated with mock data
+// — call search.data() for the record itself
 console.log(search)
 ```
 
@@ -182,7 +191,7 @@ require_once 'searchnotice_sdk.php';
 $client = new SearchNoticeSDK();
 
 
-// Load a specific search (returns the bare record; throws on error)
+// Load a specific search (returns the ENTITY; call data_get() for the record; throws on error)
 $search = $client->Search()->load(["id" => "example_id"]);
 print_r($search);
 ```
@@ -210,7 +219,7 @@ require_relative "SearchNotice_sdk"
 client = SearchNoticeSDK.new
 
 
-# Load a specific search (returns the bare record; raises on error)
+# Load a specific search (returns the ENTITY; call data_get for the record)
 search = client.Search.load({ "id" => "example_id" })
 puts search
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://api.adviceslip.com](https://api.adviceslip.com)
 

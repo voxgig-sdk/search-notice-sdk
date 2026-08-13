@@ -23,8 +23,8 @@ module SearchNoticeTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("SEARCHNOTICE_TEST_LIVE")
-    override = getenv("SEARCHNOTICE_TEST_OVERRIDE")
+    live = getenv("SEARCH_NOTICE_TEST_LIVE")
+    override = getenv("SEARCH_NOTICE_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module SearchNoticeTestRunner
       end
     end
 
-    explain = getenv("SEARCHNOTICE_TEST_EXPLAIN")
-    m["SEARCHNOTICE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("SEARCH_NOTICE_TEST_EXPLAIN")
+    m["SEARCH_NOTICE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

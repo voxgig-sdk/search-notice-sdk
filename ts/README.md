@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = SearchNoticeSDK.test()
 
 const search = await client.Search().load({ id: 'test01' })
-// search is a bare entity populated with mock response data
+// search is the entity, populated with mock response data
+// — call search.data() for the record itself
 console.log(search)
 ```
 

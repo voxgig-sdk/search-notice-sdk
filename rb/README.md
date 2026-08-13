@@ -34,7 +34,7 @@ client = SearchNoticeSDK.new
 
 ```ruby
 begin
-  # load returns the bare Search record (raises on error).
+  # load returns the ENTITY — call data_get for the Search record (raises on error).
   search = client.Search.load({ "id" => "example_id" })
   puts search
 rescue => err
@@ -120,7 +120,8 @@ client = SearchNoticeSDK.test({
   "entity" => { "search" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 search = client.Search.load({ "id" => "test01" })
 puts search
 ```
@@ -267,7 +268,7 @@ Create an instance: `search = client.Search`
 #### Example: Load
 
 ```ruby
-# load returns the bare Search record (raises on error).
+# load returns the ENTITY — call data_get for the Search record (raises on error).
 search = client.Search.load({ "id" => "search_id" })
 ```
 

@@ -60,6 +60,7 @@ class SearchNoticeConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/advice/search/{query}',
                   'parts' => [
