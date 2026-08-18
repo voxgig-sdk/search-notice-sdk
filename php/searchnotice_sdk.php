@@ -40,7 +40,7 @@ class SearchNoticeSDK
         $utility = new SearchNoticeUtility();
         $this->_utility = $utility;
 
-        $config = SearchNoticeConfig::make_config();
+        $config = SearchNoticeConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

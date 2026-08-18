@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from searchnotice_sdk.config import make_config
+from searchnotice_sdk.config import shared_config
 from searchnotice_sdk.features import _make_feature
 from searchnotice_sdk.core.control import SearchNoticeControl
 from searchnotice_sdk.core.error import SearchNoticeError
@@ -24,7 +24,7 @@ from searchnotice_sdk.core.spec import SearchNoticeSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

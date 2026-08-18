@@ -28,7 +28,7 @@ class SearchNoticeSDK
     utility = SearchNoticeUtility.new
     @_utility = utility
 
-    config = SearchNoticeConfig.make_config
+    config = SearchNoticeConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

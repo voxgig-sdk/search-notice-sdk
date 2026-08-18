@@ -23,6 +23,7 @@ build = {
   modules = {
     ["search-notice_sdk"] = "search-notice_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

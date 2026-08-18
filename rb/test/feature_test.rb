@@ -15,7 +15,7 @@ require_relative "../SearchNotice_sdk"
 module SearchNoticeFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = SearchNoticeConfig.make_config["feature"]
+    f = SearchNoticeConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 
