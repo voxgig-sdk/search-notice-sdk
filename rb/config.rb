@@ -19,6 +19,9 @@ module SearchNoticeConfig
     {
       "main" => {
         "name" => "SearchNotice",
+        "slug" => "search-notice",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {

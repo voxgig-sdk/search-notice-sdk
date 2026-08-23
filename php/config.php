@@ -33,6 +33,9 @@ class SearchNoticeConfig
         return [
             "main" => [
                 "name" => "SearchNotice",
+                "slug" => "search-notice",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
