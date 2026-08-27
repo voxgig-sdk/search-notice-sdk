@@ -238,6 +238,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 | `message` |  |
 
 Operations: Load.
@@ -263,6 +264,7 @@ Create an instance: `search = client.Search`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `id` | `String` |  |
 | `message` | `Hash` |  |
 
 #### Example: Load

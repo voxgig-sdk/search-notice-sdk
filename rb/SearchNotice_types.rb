@@ -10,9 +10,13 @@
 
 # Search entity data model.
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] message
 #   @return [Hash, nil]
 Search = Struct.new(
+  :id,
   :message,
   keyword_init: true
 )

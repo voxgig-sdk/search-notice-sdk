@@ -17,6 +17,7 @@ from typing import TypedDict, Any
 
 
 class Search(TypedDict, total=False):
+    id: str
     message: dict
 
 

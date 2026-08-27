@@ -14,6 +14,7 @@ import (
 
 // Search is the typed data model for the search entity.
 type Search struct {
+	Id *string `json:"id,omitempty"`
 	Message *map[string]any `json:"message,omitempty"`
 }
 

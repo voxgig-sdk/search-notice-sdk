@@ -248,6 +248,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 | `message` |  |
 
 Operations: Load.
@@ -273,6 +274,7 @@ Create an instance: `$search = $client->Search();`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `id` | `string` |  |
 | `message` | `array` |  |
 
 #### Example: Load

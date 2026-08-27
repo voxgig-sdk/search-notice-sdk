@@ -87,6 +87,7 @@ search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `id` | `str` | No |  |
 | `message` | `dict` | No |  |
 
 ### Operations

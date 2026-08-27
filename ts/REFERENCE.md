@@ -116,6 +116,7 @@ const search = client.Search()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `id` | `string` | No |  |
 | `message` | `Record<string, any>` | No |  |
 
 ### Operations

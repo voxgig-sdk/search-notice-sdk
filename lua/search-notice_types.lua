@@ -7,6 +7,7 @@
 -- edit by hand.
 
 ---@class Search
+---@field id? string
 ---@field message? table
 
 ---@class SearchLoadMatch

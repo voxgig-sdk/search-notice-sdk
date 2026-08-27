@@ -42,6 +42,7 @@ class SearchNoticeConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -56,6 +57,10 @@ class SearchNoticeConfig
             "entity" => [
         'search' => [
           'fields' => [
+            [
+              'name' => 'id',
+              'type' => '`$STRING`',
+            ],
             [
               'name' => 'message',
               'type' => '`$OBJECT`',

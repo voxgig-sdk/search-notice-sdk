@@ -92,6 +92,7 @@ $search = $client->Search();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `id` | `string` | No |  |
 | `message` | `array` | No |  |
 
 ### Operations

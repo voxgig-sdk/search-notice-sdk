@@ -15,6 +15,7 @@ declare(strict_types=1);
 /** Search entity data model. */
 class Search
 {
+    public ?string $id = null;
     public ?array $message = null;
 }
 

@@ -98,6 +98,7 @@ fmt.Println(search.GetName()) // "search"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `id` | `string` | No |  |
 | `message` | `map[string]any` | No |  |
 
 ### Operations

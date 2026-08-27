@@ -225,6 +225,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
+| `id` |  |
 | `message` |  |
 
 Operations: Load.
@@ -250,6 +251,7 @@ Create an instance: `local search = client:Search(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `id` | `string` |  |
 | `message` | `table` |  |
 
 #### Example: Load
